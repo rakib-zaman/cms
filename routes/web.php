@@ -24,6 +24,7 @@ Route::group(['middleware' => ['isAdmin'],'prefix' => 'admin', 'as' => 'admin.']
     Route::resource('courses', \App\Http\Controllers\Admin\CourseController::class);
     Route::delete('courses_perma_del/{id}', [\App\Http\Controllers\Admin\CourseController::class, 'perma_del'])->name('courses.perma_del');
     Route::post('courses_restore/{id}', [\App\Http\Controllers\Admin\CourseController::class, 'restore'])->name('courses.restore');
+    
 
     Route::resource('lessons', \App\Http\Controllers\Admin\LessonController::class);
     Route::post('lessons_restore/{id}', [\App\Http\Controllers\Admin\LessonController::class,'restore'])->name('lessons.restore');
