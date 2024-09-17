@@ -9,7 +9,6 @@
 Clone the project
 
 ```bash
-  git clone https://github.com/abdulaziz-m5u/course-LMS.git your-project
 ```
 
 Go to the project directory
