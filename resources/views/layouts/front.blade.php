@@ -16,7 +16,7 @@
     <!-- ===== CSS ===== -->
     <link rel="stylesheet" href="{{ asset('frontend/assets/style.css') }}" />
 
-    <title>LMS</title>
+    <title>CMS</title>
   </head>
   <body>
     <header class="header" id="header">
