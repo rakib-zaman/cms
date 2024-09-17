@@ -1,4 +1,4 @@
-# Laravel 8 Learning Management System - (LMS)
+# Laravel 8 Content Management System - (CMS)
 
 ## Screenshots
 
