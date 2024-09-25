@@ -30,3 +30,4 @@ class HomeController extends Controller
         return view('index', compact('courses','purchased_courses'));
     }
 }
+
