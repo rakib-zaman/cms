@@ -13,11 +13,9 @@ class LessonController extends Controller
 {
     public function show($course_id, $lesson_slug)
     {
-
         $lesson = Lesson::with('test')->where('slug', $lesson_slug)->where('course_id', $course_id)->firstOrFail();
-       
-        if (auth()->check())
-        {
+
+        if (auth()->check()) {
             if ($lesson->students()->where('user_id', auth()->id())->count() == 0) {
                 $lesson->students()->attach(auth()->id());
             }
@@ -45,7 +43,7 @@ class LessonController extends Controller
             $test_exists = TRUE;
         }
 
-        return view('lesson', compact('lesson', 'previous_lesson', 'next_lesson','purchased_course','test_exists','test_result'));
+        return view('lesson', compact('lesson', 'previous_lesson', 'next_lesson', 'purchased_course', 'test_exists', 'test_result'));
     }
 
     public function test($lesson_slug, Request $request)
@@ -53,6 +51,7 @@ class LessonController extends Controller
         $lesson = Lesson::where('slug', $lesson_slug)->firstOrFail();
         $answers = [];
         $test_score = 0;
+
         foreach ($request->get('questions') as $question_id => $answer_id) {
             $question = Question::find($question_id);
             $correct = QuestionOption::where('question_id', $question_id)
@@ -66,12 +65,8 @@ class LessonController extends Controller
             if ($correct) {
                 $test_score += $question->score;
             }
-            /*
-             * Save the answer
-             * Check if it is correct and then add points
-             * Save all test result and show the points
-             */
         }
+
         $test_result = TestResult::create([
             'test_id' => $lesson->test->id,
             'user_id' => auth()->id(),

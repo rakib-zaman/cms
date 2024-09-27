@@ -53,3 +53,5 @@ Route::post('course/{course_id}/rating', [App\Http\Controllers\CourseController:
 
 Route::get('lessons/{course_id}/{slug}', [App\Http\Controllers\LessonController::class, 'show'])->name('lessons.show');
 Route::post('lesson/{slug}/test', [App\Http\Controllers\LessonController::class, 'test'])->name('lessons.test');
+
+Route::post('video/completed', [App\Http\Controllers\LessonController::class, 'videoCompleted'])->name('video.completed');
